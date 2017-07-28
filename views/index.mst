@@ -5,11 +5,20 @@
     <title>checklist</title>
   </head>
   <body>
-    <form class="todo" action="/" method="post">
-      <input type="text" name="items">
+    <form class="todos" action="/" method="post">
+      <input type="text" name="newItem">
       <button type="submit" name="button">Add To Do</button>
-
     </form>
+    <ul>
+      {{#todos}}
+       <li>{{.}}</li>
+      {{/todos}}
+    </ul>
+    <ul>
+    {{#errors}}
+    <li>{{msg}}</li>
+    {{/errors}}
+  </ul>
 
   </body>
 </html>

@@ -13,23 +13,20 @@ app.engine('mst', mustacheExpress())
 app.set('views', './views')
 app.set('view engine', 'mst')
 
-const todos = ['Wash the car']
-//QUESTION--WHAT DOES TODO:TODO ACCOMPLISH BELOW?
+let myList = ['first task']
 app.get('/', function(req, res) {
-  res.render('index', { todos })
+  res.render('index', { todos: myList })
 })
 
 app.post('/', (req, res) => {
-  req.checkBody('todo', 'Need an item to do!').notEmpty()
-  //QUESTION--WHAT DOES ERRORS:ERRORS ACCOMPLISH BELOW?
-  //QUESTION--WHY IS THE BELOW NOT RENDERING A VALID INDEX PAGE WITH TODO ITEMS?
+  req.checkBody('newItem', 'Need an item to do!').notEmpty()
   const errors = req.validationErrors()
   if (errors) {
     res.render('index', { errors })
   } else {
-    //QUESTION--i anticipated below to provide the post data for /index, not sure why not working?
+    myList.push(req.body.newItem)
     res.render('index', {
-      todo: req.body.todo
+      todos: myList
     })
   }
 })
