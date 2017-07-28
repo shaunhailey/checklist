@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>checklist</title>
+  </head>
+  <body>
+    <input type="text" name="todo" value="">
+      <button type="submit" name="button">Add To Do</button>
+    <ul>
+      {{#todo}}
+      <li>{{todo}}</li>
+      {{/todo}}
+    </ul>
+
+  </body>
+</html>
