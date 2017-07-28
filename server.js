@@ -13,7 +13,7 @@ app.engine('mst', mustacheExpress())
 app.set('views', './views')
 app.set('view engine', 'mst')
 
-let myList = ['first task']
+let myList = []
 app.get('/', function(req, res) {
   res.render('index', { todos: myList })
 })

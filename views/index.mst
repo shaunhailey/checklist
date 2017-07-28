@@ -2,6 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="styles.css">
     <title>checklist</title>
   </head>
   <body>
@@ -11,7 +12,7 @@
     </form>
     <ul>
       {{#todos}}
-       <li>{{.}}</li>
+       <input type="checkbox">{{.}}
       {{/todos}}
     </ul>
     <ul>
